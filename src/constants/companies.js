@@ -1,0 +1,103 @@
+export const COMPANIES = [
+  "1kosmos","6sense","accelya","accenture","accolite","acko","acorns","activision","adobe","adp",
+  "aetion","affinity","affirm","agoda","airbnb","airbus","airtel","airwallex","akamai","akuna-capital",
+  "alibaba","allincall","alphonso","alten","altimetrik","amadeus","amazon","amd","amdocs",
+  "american-airlines","american-express","amplitude","analytics-quotient","andela","anduril",
+  "anthropic","anyscale","aon","apolloio","appdynamics","appfolio","apple","applied-intuition",
+  "applovin","aqr-capital-management-llc","arcesium","argo-ai","arista-networks","asana","ascend",
+  "at-t","athenahealth","atlassian","attentive","audible","auriga","aurora","autodesk","avalara",
+  "avito","axis-bank","axon","baidu","bank-of-america","barclays","bcg","bending-spoons","bitgo",
+  "blackbuck","blackrock","blackstone","blend","blinkit","bloomberg","bloomreach","blue-origin",
+  "bnp-paribas","bny-mellon","boeing","bolt","bookingcom","box","bp","braze",
+  "bridgewater-associates","brillio","broadcom","browserstack","bt-group","buyhatke","bytedance",
+  "c3-ai","cadence","canonical","canva","capgemini","capital-one","careem","cars24","carwale",
+  "cashfree","caterpillar","cerner","chalo","chargebee","checkpoint","chewy","chime","chubb",
+  "ciena","circle","cisco","citadel","citi","citrix","clari","cleartrip","clevertap","cloudera",
+  "cloudflare","clutter","cme-group","cockroach-labs","code-studio","cognizant","cohesity",
+  "coinbase","coindcx","coinswitch-kuber","comcast","commvault","compass","confluent","couchbase",
+  "coupa","coupang","coursera","coveo","cred","credit-karma","criteo","crowdstrike",
+  "cruise-automation","ctc","curefit","cvent","cyntexa","cyware","dailyhunt","darwinbox",
+  "dassault-sysetmes","dataart","databricks","datadog","dataminr","de-shaw","deepmind","delhivery",
+  "deliveroo","dell","deloitte","deltax","deutsche-bank","devrev","dialpad","didi","directi",
+  "discord","discovery","disney","dji","docusign","doordash","dp-world","drawbridge","dream11",
+  "dropbox","druva","drw","dtcc","dunzo","duolingo","earnin","ebay","edelweiss","electronic-arts",
+  "elitmus","epam-systems","epic-games","epic-systems","epifi","equinix","ericsson","etsy",
+  "expedia","ey","f5-networks","factset","factwise","faire","fallible","fanatics","fast","fastenal",
+  "fico","fidelity","fidessa","figma","fiverr","fivetran","flatiron-health","fleetx","flexera",
+  "flexport","flipkart","ford","fortinet","forusall","fourkites","fpt","fractal-analytics",
+  "freecharge","freshworks","fynd","gainsight","gameskraft","garena","garmin","gartner","ge-digital",
+  "ge-healthcare","geico","general-electric","general-motors","genpact","gilt-groupe","github",
+  "glassdoor","globallogic","globant","glovo","godaddy","gojek","goldman-sachs","google","gopuff",
+  "goto","grab","grammarly","graviton","groupon","groww","grubhub","gsa-capital","gsn-games",
+  "guidewire","gusto","harness","hashedin","hbo","hcl","helix","hertz","highspot","hilabs","hive",
+  "honey","honeywell","hopper","hotstar","houzz","hp","hpe","hrt","hsbc","htc","huawei","hubspot",
+  "hulu","ibm","iit-bombay","imc","impact-analytics","increff","indeed","info-edge","informatica",
+  "infosys","inmobi","innovaccer","instabase","instacart","intel","interactive-brokers","intercom",
+  "intuit","ivp","ixigo","ixl","jane-street","jd","jeavio","jetbrains","jingchi","jio",
+  "josh-technology","jpmorgan","jtg","jump-trading","junglee-games","juspay","justworks","kakao",
+  "karat","keeptruckin","kickdrum","kla-tencor","kla","kotak-mahindra-bank","kpit","kpmg",
+  "lacework","larsen-toubro","leap-motion","lendingkart","lenskart","lg-electronics",
+  "liberty-mutual","liftoff","lime","line","linkedin","liveramp","livspace","lowe","lti","lucid",
+  "luxoft","lyft","machine-zone","machinezone","maersk","makemytrip","mapbox","maq-software",
+  "marqeta","mastercard","mathworks","mcafee","mcdonalds","mckinsey","medianet","meesho","meituan",
+  "mercari","meta","micro1","microsoft","microstrategy","millennium","mindtickle","mindtree",
+  "mishipay","mitsogo","mixpanel","mobileye","mobisy","moengage","moloco","moneylion","mongodb",
+  "morgan-stanley","moveworks","msci","murex","mykaarma","myntra","nagarro","nasdaq",
+  "national-instruments","national-payments-coorperation-india","natwest","navan","naver","navi",
+  "ncr","nerdwallet","netapp","netcracker-technology","netease","netflix","netskope","netsuite",
+  "newsbreak","nextdoor","nextjump","nference","niantic","nielsen","nike","nokia","noon",
+  "nordstrom","notion","npci","nuro","nutanix","nvidia","nykaa","observeai","odoo","okta","okx",
+  "olx","openai","opentext","oppo","optiver","optum","oracle","oscar-health","otterai","oyo",
+  "ozon","palantir-technologies","palo-alto-networks","park","patreon","paycom","paypal","paypay",
+  "paytm","payu","peak6","pega","peloton","persistent-systems","philips","phonepe","pickrr",
+  "pinterest","plaid","playsimple","pocket-gems","point72","polar","ponyai","pornhub","porter",
+  "poshmark","postman","postmates","poynt","practo","publicis-sapient","pubmatic","pure-storage",
+  "pure","purplle","pwc","qualcomm","qualtrics","qualys","quantcast","quantiphi","quince","quora",
+  "rackspace","radius","rakuten","rally-health","ramp-2","razorpay","rbc","redbus","reddit",
+  "redfin","remitly","retailmenot","revolut","riot-games","ripple","rippling","rivian","robinhood",
+  "roblox","rokt","roku","rubrik","salesforce","sambanova","samsara","samsung","sap","scale-ai",
+  "scaler","schlumberger","schneider-electric","schrodinger","sentry","servicenow","sharechat",
+  "shift-technology","shipsy","shopee","shopify","siemens","sig","sigmoid","singlestore","sixt",
+  "slice","smartnews","smartsheet","snapchat","snapdeal","snowflake","societe-generale","sofi",
+  "softwire","sonatus","sony","soti","soundhound","spacex","spinny","splunk","spotify","sprinklr",
+  "square","squarepoint-capital","squarespace","stackadapt","stackline","starbucks","state-farm",
+  "strava","stripe","sumologic","swiggy","syfe","symantec","synopsys","ta-digital","tableau",
+  "tanium","target","tcs","tech-mahindra","tekion","tencent","teradata","tesco","tesla",
+  "texas-instruments","the-trade-desk","thomson-reuters","thoughtspot","thoughtworks","thousandeyes",
+  "thumbtack","tiaa","tiger-analytics","tiktok","tinder","tinkoff","toast","tokopedia","tomtom",
+  "toptal","tower-research","tracxn","traveloka","trend-micro","trexquant","trilogy","tripactions",
+  "tripadvisor","triplebyte","turing","turo","turvo","tusimple","twilio","twitch","twitter",
+  "two-sigma","uber","ubs","udemy","uipath","ukg","unbxd","unity","unstop","upstart",
+  "urban-company","ust","valve","veeva","verily","veritas","verizon","verkada","viasat","vimeo",
+  "virtu","virtusa","visa","vk","vmware","walmart-labs","warnermedia","watchguard","wayfair",
+  "waymo","wayve","wealthfront","wells-fargo","weride","western-digital","whatfix","whatnot","winzo",
+  "wipro","wise","wish","wissen","wix","workday","works-applications","worldquant",
+  "woven-by-toyota","xing","yahoo","yandex","yatra","yelp","yext","yugabyte","zalando","zappos",
+  "zemoso","zendesk","zenefits","zepto","zeta-suite","zeta","zillow","zip","ziprecruiter","zluri",
+  "zocdoc","zoho","zomato","zoom","zoox","zopsmart","zs-associates","zscaler","zulily","zynga"
+];
+
+export const TIME_PERIODS = [
+  { value: "all", label: "All Time" },
+  { value: "thirty-days", label: "Last 30 Days" },
+  { value: "three-months", label: "Last 3 Months" },
+  { value: "six-months", label: "Last 6 Months" },
+  { value: "more-than-six-months", label: "6+ Months Ago" },
+];
+
+export const CSV_BASE_URL = "https://raw.githubusercontent.com/snehasishroy/leetcode-companywise-interview-questions/master";
+
+export function formatCompanyName(slug) {
+  return slug
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+// Popular companies shown first in the selector
+export const POPULAR_COMPANIES = [
+  "google","amazon","meta","apple","microsoft","netflix","uber","bloomberg",
+  "adobe","oracle","salesforce","linkedin","twitter","snapchat","spotify",
+  "stripe","airbnb","bytedance","goldman-sachs","jpmorgan","atlassian",
+  "walmart-labs","flipkart","intuit","paypal","nvidia","tesla","tiktok",
+];
