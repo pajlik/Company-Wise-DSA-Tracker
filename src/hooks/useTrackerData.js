@@ -1,33 +1,25 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { supabase } from "../lib/supabase";
 
-const LS_KEY = "dsa-tracker-data";
+const ANON_LS_KEY = "dsa-tracker-data";
 
-function loadLS() {
+function lsKey(userId) {
+  return userId ? `dsa-tracker-data-${userId}` : ANON_LS_KEY;
+}
+
+function loadLS(userId) {
   try {
-    const item = localStorage.getItem(LS_KEY);
+    const item = localStorage.getItem(lsKey(userId));
     return item ? JSON.parse(item) : {};
   } catch {
     return {};
   }
 }
 
-function saveLS(data) {
+function saveLS(userId, data) {
   try {
-    localStorage.setItem(LS_KEY, JSON.stringify(data));
+    localStorage.setItem(lsKey(userId), JSON.stringify(data));
   } catch {}
-}
-
-function deepMerge(base, override) {
-  const result = { ...base };
-  for (const key of Object.keys(override)) {
-    if (override[key] && typeof override[key] === "object" && !Array.isArray(override[key])) {
-      result[key] = deepMerge(base[key] || {}, override[key]);
-    } else {
-      result[key] = override[key];
-    }
-  }
-  return result;
 }
 
 function toRow(userId, company, questionId, entry) {
@@ -56,14 +48,23 @@ async function uploadBatch(rows) {
 }
 
 export function useTrackerData(user) {
-  const [allData, setAllData] = useState(loadLS);
+  const [allData, setAllData] = useState(() => loadLS(null));
   const [syncing, setSyncing] = useState(false);
   const pendingUpserts = useRef({});
   const debounceTimer = useRef(null);
 
-  // Load from Supabase when user logs in
   useEffect(() => {
-    if (!user || !supabase) return;
+    // User logged out — reset to anonymous localStorage
+    if (!user) {
+      setAllData(loadLS(null));
+      return;
+    }
+
+    // User logged in — load only their data from Supabase
+    if (!supabase) {
+      setAllData(loadLS(user.id));
+      return;
+    }
 
     setSyncing(true);
     supabase
@@ -89,21 +90,9 @@ export function useTrackerData(user) {
           };
         }
 
-        // DB is authoritative; localStorage fills in any locally-only data
-        const lsData = loadLS();
-        const merged = deepMerge(fromDB, lsData);
-        setAllData(merged);
-        saveLS(merged);
-
-        // Push any localStorage-only entries up to Supabase
-        const rows = [];
-        for (const [company, questions] of Object.entries(lsData)) {
-          for (const [questionId, entry] of Object.entries(questions)) {
-            const dbEntry = fromDB[company]?.[questionId];
-            if (!dbEntry) rows.push(toRow(user.id, company, questionId, entry));
-          }
-        }
-        uploadBatch(rows);
+        // Use DB data as source of truth for this user
+        setAllData(fromDB);
+        saveLS(user.id, fromDB);
       });
   }, [user?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -129,7 +118,7 @@ export function useTrackerData(user) {
           ...prev,
           [company]: { ...(prev[company] || {}), [questionId]: merged },
         };
-        saveLS(next);
+        saveLS(user?.id ?? null, next);
         return next;
       });
     },
