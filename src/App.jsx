@@ -1,5 +1,5 @@
-import { useState, useCallback, useEffect } from "react";
-import { Code2, ExternalLink, LogIn, LogOut, Loader2 } from "lucide-react";
+import { useState, useCallback, useEffect, useMemo } from "react";
+import { Code2, ExternalLink, LogIn, LogOut, Loader2, Trophy } from "lucide-react";
 import CompanySelector from "./components/CompanySelector";
 import TimePeriodSelector from "./components/TimePeriodSelector";
 import QuestionsTable from "./components/QuestionsTable";
@@ -20,6 +20,16 @@ function App() {
   const { allData: allTrackerData, updateEntry, syncing } = useTrackerData(user);
 
   const trackerData = allTrackerData[company] || {};
+
+  const totalSolved = useMemo(() => {
+    let count = 0;
+    for (const companyData of Object.values(allTrackerData)) {
+      for (const entry of Object.values(companyData)) {
+        if (entry.status === "solved") count++;
+      }
+    }
+    return count;
+  }, [allTrackerData]);
 
   // Auth state listener
   useEffect(() => {
@@ -61,6 +71,14 @@ function App() {
           </div>
 
           <div className="flex items-center gap-3">
+            {/* Global solved count */}
+            {totalSolved > 0 && (
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-easy/10 border border-easy/20">
+                <Trophy size={14} className="text-easy" />
+                <span className="text-xs font-semibold text-easy">{totalSolved} solved</span>
+              </div>
+            )}
+
             {/* Sync indicator */}
             {syncing && (
               <div className="flex items-center gap-1.5 text-xs text-text-muted">
