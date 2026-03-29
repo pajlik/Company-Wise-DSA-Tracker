@@ -27,7 +27,7 @@ export default function QuestionDetailModal({ question, tracker, onUpdate, onClo
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative w-full max-w-2xl bg-surface border border-border rounded-2xl shadow-2xl flex flex-col max-h-[90vh]">
+      <div className="relative w-full max-w-4xl bg-surface border border-border rounded-2xl shadow-2xl flex flex-col max-h-[92vh]">
         {/* Header */}
         <div className="flex items-start justify-between gap-4 px-6 py-4 border-b border-border">
           <div className="flex items-center gap-3 min-w-0">
@@ -58,13 +58,13 @@ export default function QuestionDetailModal({ question, tracker, onUpdate, onClo
         </div>
 
         {/* Body */}
-        <div className="overflow-y-auto p-6 grid grid-cols-2 gap-3">
+        <div className="overflow-y-auto p-6 grid grid-cols-2 gap-4">
           <Field icon={FileText} label="Notes">
             <textarea
               value={tracker?.notes || ""}
               onChange={(e) => onUpdate({ ...tracker, notes: e.target.value })}
               placeholder="Add your notes..."
-              rows={4}
+              rows={7}
               className="w-full text-sm bg-transparent text-text placeholder:text-text-muted/40 outline-none resize-none"
             />
           </Field>
@@ -74,7 +74,7 @@ export default function QuestionDetailModal({ question, tracker, onUpdate, onClo
               value={tracker?.approach || ""}
               onChange={(e) => onUpdate({ ...tracker, approach: e.target.value })}
               placeholder="Describe your approach..."
-              rows={4}
+              rows={7}
               className="w-full text-sm bg-transparent text-text placeholder:text-text-muted/40 outline-none resize-none"
             />
           </Field>

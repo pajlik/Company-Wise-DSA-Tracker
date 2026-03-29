@@ -23,8 +23,9 @@ export default function QuestionRow({ question, tracker, onUpdate }) {
   return (
     <>
       <div
+        onClick={() => setModalOpen(true)}
         className={`grid grid-cols-[40px_1fr_100px_90px_90px_150px_36px] items-center gap-3 px-4 py-3
-          border-b border-border/50 last:border-b-0 hover:bg-surface-light/50 transition-colors
+          border-b border-border/50 last:border-b-0 hover:bg-surface-light/50 transition-colors cursor-pointer
           ${currentStatus === "solved" ? "opacity-60" : ""}`}
       >
         {/* ID */}
@@ -32,12 +33,9 @@ export default function QuestionRow({ question, tracker, onUpdate }) {
 
         {/* Title — click opens modal */}
         <div className="flex items-center gap-2 min-w-0">
-          <button
-            onClick={() => setModalOpen(true)}
-            className="text-sm text-text hover:text-primary-light transition-colors truncate font-medium text-left cursor-pointer"
-          >
+          <span className="text-sm text-text truncate font-medium">
             {question.title}
-          </button>
+          </span>
           <a
             href={question.url}
             target="_blank"
@@ -73,7 +71,7 @@ export default function QuestionRow({ question, tracker, onUpdate }) {
         </div>
 
         {/* Status toggle buttons */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
           {STATUS_OPTIONS.map(({ value, label, icon: Icon, color, bg }) => {
             const active = currentStatus === value;
             return (
@@ -95,7 +93,7 @@ export default function QuestionRow({ question, tracker, onUpdate }) {
 
         {/* Notes button */}
         <button
-          onClick={() => setModalOpen(true)}
+          onClick={(e) => { e.stopPropagation(); setModalOpen(true); }}
           title="Open notes"
           className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
             hasNotes
